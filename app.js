@@ -3,6 +3,8 @@ const { engine } = require("express-handlebars");
 const path = require("path");
 
 const homeRoute = require("./routes/HomeRoute");
+const authRoutes = require("./routes/AuthRoutes");
+
 const errorController = require("./controllers/ErrorController");
 
 const app = express();
@@ -23,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(homeRoute);
+app.use(authRoutes);
 app.use(errorController.Get404);
 
 app.listen(3001);
