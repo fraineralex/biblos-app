@@ -5,48 +5,67 @@
         <div class="row d-flex justify-content-center">
           <div class="col-lg-8">
             <h2 class="fw-bold mb-5">Sign up now</h2>
-
+           
             <form action="signup" method="POST">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="Name">First name</label>
-                    <input type="text" id="Name" name="Name" class="form-control" />
+                    <label class="form-label" for="name">First name</label>
+                    <input type="text" id="name" name="name" class="form-control" />
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="LastName">Last name</label>
-                    <input type="text" id="LastName" name="LastName" class="form-control" />
+                    <label class="form-label" for="lastName">Last name</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" />
                   </div>
                 </div>
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="Email">Email address</label>
-                <input type="email" id="Email" name="Email" class="form-control" />
+                <label class="form-label" for="email">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" />
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="Password">Password</label>
-                <input type="password" id="Password" name="Password" class="form-control" />
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" />
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="Phone">Phone</label>
-                <input type="text" id="Phone" name="Phone" class="form-control" />
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" />
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="Address">Address</label>
-                <input type="text" id="Address" name="Address" class="form-control" />
+                <label class="form-label" for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" class="form-control" />
               </div>
 
               <div class="form-outline mb-4">
-                <label class="form-label" for="UserName">User Name</label>
-                <input type="text" id="UserName" name="UserName" class="form-control" />
+                <label class="form-label" for="address">Address</label>
+                <input type="text" id="address" name="address" class="form-control" />
               </div>
-          
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="roleId">Account type</label>
+                <select class="form-select" name="roleId" id="roleId">
+                  <option value="">Select your account type</option>
+                  <option value="1">User</option>
+                  <option value="2">Author</option>
+                </select>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="imageProfile">Image</label>
+                <input type="file" id="imageProfile" name="imageProfile" class="form-control" />
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="username">User Name</label>
+                <input type="text" id="username" name="username" class="form-control" />
+              </div>
+
               <button type="submit" class="btn btn-primary btn-block mb-4">
                 Sign up
               </button>
