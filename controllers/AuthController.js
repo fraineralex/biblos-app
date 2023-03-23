@@ -4,7 +4,8 @@ const User =  require('../models/User')
 const { Op } = require("sequelize");
 
 exports.getSignUp = (req, res, next) => {
-    response.status(200).render('register/signUp', {
+
+    res.status(200).render('register/signUp', {
         pageTitle: 'Sign up'
     })
 }
@@ -64,6 +65,6 @@ exports.postSignUp = async (request, response) => {
     //const savedUser = await user.save()
 
     request.flash("success",`${savedUser.name} ${savedUser.lastName} tu cuenta ha sido registrada correctamente.`);
-    response.status(201).json(savedUser)
+    // response.status(201).json(savedUser)
     response.redirect("/");
   }
