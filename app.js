@@ -3,6 +3,11 @@ const { engine } = require("express-handlebars");
 const path = require("path");
 const sequelize = require("./utils/database");
 const relationships = require("./models/RelationShips")
+const session = require("express-session");
+const flash = require("connect-flash");
+const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
+const cors = require('cors')
 
 const homeRoute = require("./routes/HomeRoute");
 const authRoutes = require("./routes/AuthRoutes");
@@ -24,7 +29,36 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors())
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images",express.static(path.join(__dirname, "images")));
+
+//session
+app.use(
+  session({ secret: process.env.SECRET || 'biblosapp', resave: true, saveUninitialized: false })
+);
+app.use(flash());
+app.use((request, response, next) => {
+  const errors = request.flash("errors"); 
+  const success = request.flash("success");
+  response.locals.errorMessages = errors;
+  response.locals.hasErrorMessages = errors.length > 0;
+  response.locals.successMessages = success;
+  response.locals.hasSuccessMessages = success.length > 0;
+  next();
+});
+
+//multer
+const imageStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${uuidv4()}-${file.originalname}`);
+  },
+});
+app.use(multer({ storage: imageStorage }).single("ImageFile"));
 
 app.use(homeRoute);
 app.use(authRoutes);
@@ -33,7 +67,7 @@ app.use(errorController.Get404);
 relationships()
 
 const PORT = process.env.PORT || 3001
-const server = sequelize.sync({ force: true }).then(() =>
+const server = sequelize.sync({ force: false }).then(() =>
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
   })).catch((err) =>console.log(err));

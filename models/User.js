@@ -22,7 +22,7 @@ const User = sequelizeSchema.define("user",{
   },
   imageProfile:{
       type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
   },
   email:{
       type: Sequelize.STRING,
@@ -39,7 +39,7 @@ const User = sequelizeSchema.define("user",{
   },
   isActive:{
     type: Sequelize.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
     default: true
 },
   passwordHash:{
