@@ -1,21 +1,17 @@
 const Sequelize = require("sequelize");
 const sequelizeSchema = require("../utils/database");
 
-const Book = sequelizeSchema.define("book",{
+const User = sequelizeSchema.define("role",{
   id:{
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
   },
-  title:{
+  name:{
       type: Sequelize.STRING,
       allowNull: false,
-  },
-  description: {
-    type: Sequelize.TEXT,
-    allowNull: false,
   }
 })
 
-module.exports = Book
+module.exports = User
