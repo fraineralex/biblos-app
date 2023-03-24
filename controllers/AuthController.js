@@ -11,6 +11,7 @@ exports.getSignUp = (req, res, next) => {
 }
 
 exports.postSignUp = async (request, response) => {
+    
     const { body } = request
     const {
         username,
@@ -24,7 +25,7 @@ exports.postSignUp = async (request, response) => {
         confirmPassword
     } = body
 
-    const imageProfile = body.imageProfile ? `/${body.imageProfile.path}` : null
+    const imageProfile = request.file ? `/${request.file.path}` : null
 
     if (password !== confirmPassword) {
         request.flash("errors", "Las contraseñas no son similares");
