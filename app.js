@@ -46,6 +46,9 @@ app.use((request, response, next) => {
   response.locals.hasErrorMessages = errors.length > 0;
   response.locals.successMessages = success;
   response.locals.hasSuccessMessages = success.length > 0;
+
+  response.locals.isAuthenticated = request.session.isLoggedIn;
+  response.locals.user = request?.session?.user ?? '';
   next();
 });
 

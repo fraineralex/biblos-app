@@ -11,17 +11,70 @@
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100">
+                     <div class="w-50 d-flex">
+                           <li class="nav-item">
+                               <a class="nav-link active" aria-current="page" href="#">Home</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="#">Features</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="#">Pricing</a>
+                           </li>
+                        
+                     </div>
+                        
+                        <div class="w-50 float-end d-flex justify-content-end">
+
+                            {{#if isAuthenticated}}
+                            <li class="nav-item me-2">
+                                <img style="width: 42px" src="{{user.imageProfile}}" alt="">
+                            </li>
+
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    <button class="btn btn-danger" type="submit">Logout</button>
+                                </form>
+                            </li>
+                            
+
+                            {{else}}
+
+
+                            <li class="nav-item">
+                                <a class="btn btn-primary" aria-current="page" href="/login">Login</a>
+                            </li>
+
+                            {{/if}}
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
     <div class="container mt-4">
         <main class="container">
             {{#if hasSuccessMessages}}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <ul>
-                        {{#each successMessages}}
-                            <li>{{this}}</li>
-                        {{/each}}
-                    </ul>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <ul>
+                    {{#each successMessages}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             {{/if}}
 
             {{{body}}}
@@ -29,4 +82,5 @@
     </div>
     <link rel="stylesheet" href="/assets/lib/bootstrap/js/bootstrap.min.js">
 </body>
+
 </html>
