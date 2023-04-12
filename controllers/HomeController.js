@@ -9,5 +9,5 @@ exports.GetHome = async (req, res, next) => {
     await Role.create({name: 'admin'})
   }
 
-  res.status(404).render("home", { pageTitle: "Home" });
+  res.status(404).render("home", { pageTitle: "Home", isHomeActive: true });
 };
