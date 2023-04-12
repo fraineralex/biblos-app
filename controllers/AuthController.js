@@ -72,15 +72,7 @@ exports.postSignUp = async (request, response) => {
 
 
 
-  
-exports.GetLogin = (req, res, next) => {
 
-    res.render("auth/login", {
-      pageTitle: "Login",
-      loginCSS: true,
-      loginActive: true,   
-    });
-  };
   
   exports.PostLogin = (req, res, next) => {
     const email = req.body.email;
@@ -90,7 +82,7 @@ exports.GetLogin = (req, res, next) => {
       .then((user) => {
         if (!user) {
           req.flash("errors", "email is invalid ");
-          return res.redirect("/login");
+          return res.redirect("/");
         }
         bcrypt
           .compare(password, user.passwordHash)
@@ -98,14 +90,14 @@ exports.GetLogin = (req, res, next) => {
             if (result) {
               req.session.isLoggedIn = true;
               req.session.user = user;
+              console.log('Welcome')
               return req.session.save((err) => {
-                
                 req.flash("success", `Welcome to the system ${user.name}`);
                 res.redirect("/");
               });
             }
             req.flash("errors", "password is invalid");
-            res.redirect("/login");
+            res.redirect("/");
           })
           .catch((err) => {
             console.log(err);

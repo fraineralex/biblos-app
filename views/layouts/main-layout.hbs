@@ -6,67 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{pageTitle}}</title>
-    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav w-100">
-                     <div class="w-50 d-flex">
-                           <li class="nav-item">
-                               <a class="nav-link active" aria-current="page" href="#">Home</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="#">Features</a>
-                           </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="#">Pricing</a>
-                           </li>
-                        
-                     </div>
-                        
-                        <div class="w-50 float-end d-flex justify-content-end">
 
-                            {{#if isAuthenticated}}
-                            <li class="nav-item me-2">
-                                <img style="width: 42px" src="{{user.imageProfile}}" alt="">
-                            </li>
+    <!-- SECCION DEL HEADER -->
 
-                            <li class="nav-item">
-                                <form action="/logout" method="POST">
-                                    <button class="btn btn-danger" type="submit">Logout</button>
-                                </form>
-                            </li>
-                            
+    <header class="header">
 
-                            {{else}}
+        <section class="header-1">
 
+            <a href="/" class="logo"> <i class="fas fa-book"></i> BIBLOS </a>
 
-                            <li class="nav-item">
-                                <a class="btn btn-primary" aria-current="page" href="/login">Login</a>
-                            </li>
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="Buscar aquí..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
 
-                            {{/if}}
-                        </div>
-                    </ul>
-                </div>
+            <div class="icons">
+             
+                <div id="search-btn" class="fas fa-search"></div>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+
+                {{#if isAuthenticated}}
+
+                <a href="/logout" class="fas fa-sign-out-alt"></a>
+
+                {{else}}
+                <div id="login-btn" class="fas fa-user"></div>
+                {{/if}}
+
             </div>
-        </nav>
+
+            {{#if isAuthenticated}}
+            <div class="userLoggedContainer">
+            <p>{{user.username}}</p>
+            <img style="width: 42px;" src="{{user.imageProfile}}" alt="">
+
+            </div>
+            {{/if}}
+
+        </section>
+
+        <div class="header-2">
+            <nav class="navbar">
+                <a href="/">home</a>
+                <a href="#">featured</a>
+                <a href="#">arrivals</a>
+                <a href="#">reviews</a>
+                <a href="#">blogs</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- FINAL DE LA SECCION DEL HEADER -->
+
+    <!-- bottom navbar  -->
+
+    <nav class="bottom-navbar">
+        <a href="#home" class="fas fa-home"></a>
+        <a href="#featured" class="fas fa-list"></a>
+        <a href="#arrivals" class="fas fa-tags"></a>
+        <a href="#reviews" class="fas fa-comments"></a>
+        <a href="#blogs" class="fas fa-blog"></a>
+    </nav>
+
+    <!-- login form  -->
+
+    <div class="login-form-container">
+
+        <div id="close-login-btn" class="fas fa-times"></div>
+
+        <form action="/login" method="POST">
+            <h3>sign in</h3>
+            <span>correo</span>
+            <input type="email" name="email" class="box" placeholder="Ingrese su correo" id="">
+            <span>password</span>
+            <input type="password" name="password" class="box" placeholder="Ingrese su contraseña" id="">
+            {{!-- <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div> --}}
+            <input type="submit" value="sign in" class="btn">
+            <p>olvidaste tú contraseña ? <a href="#">click aquí</a></p>
+            <p>no tengo una cuenta ? <a href="#">create una</a></p>
+        </form>
+
+    </div>
+
+
+
+    {{!-- ------------------------------- --}}
+
     </header>
 
 
-    <div class="container mt-4">
-        <main class="container">
-            {{#if hasSuccessMessages}}
+    
+        <main class="{{#if isHomeActive}} {{else}} container {{/if}}">
+            {{!-- {{#if hasSuccessMessages}}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <ul>
                     {{#each successMessages}}
@@ -75,12 +120,19 @@
                 </ul>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            {{/if}}
+            {{/if}} --}}
 
             {{{body}}}
         </main>
-    </div>
-    <link rel="stylesheet" href="/assets/lib/bootstrap/js/bootstrap.min.js">
+    
+    {{!--
+    <link rel="stylesheet" href="/assets/lib/bootstrap/js/bootstrap.min.js"> --}}
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+    <script src="/assets/js/script.js"></script>
+
 </body>
 
 </html>
