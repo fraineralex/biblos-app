@@ -11,6 +11,7 @@ const cors = require('cors')
 
 const homeRoute = require("./routes/HomeRoute");
 const authRoutes = require("./routes/AuthRoutes");
+const BooksRoutes = require("./routes/BooksRoutes");
 
 const errorController = require("./controllers/ErrorController");
 
@@ -24,6 +25,7 @@ app.engine(
     extname: "hbs",
   })
 );
+
 
 app.set("view engine", "hbs");
 app.set("views", "views");
@@ -65,6 +67,7 @@ app.use(multer({ storage: imageStorage }).single("ImageFile"));
 
 app.use(homeRoute);
 app.use(authRoutes);
+app.use(BooksRoutes);
 app.use(errorController.Get404);
 
 relationships()
