@@ -69,3 +69,60 @@ exports.postSignUp = async (request, response) => {
     // response.status(201).json(savedUser)
     response.redirect("/");
   }
+
+
+
+
+  
+  exports.PostLogin = (req, res, next) => {
+    const email = req.body.email;
+    const password = req.body.password;
+  
+    User.findOne({ where: { email: email } })
+      .then((user) => {
+        if (!user) {
+          req.flash("errors", "email is invalid ");
+          return res.redirect("/");
+        }
+        bcrypt
+          .compare(password, user.passwordHash)
+          .then((result) => {
+            if (result) {
+              req.session.isLoggedIn = true;
+              req.session.user = user;
+              console.log('Welcome')
+              return req.session.save((err) => {
+                req.flash("success", `Welcome to the system ${user.name}`);
+                res.redirect("/");
+              });
+            }
+            req.flash("errors", "password is invalid");
+            res.redirect("/");
+          })
+          .catch((err) => {
+            console.log(err);
+             req.flash("errors", "An error has occurred contact the administrator.");
+            res.redirect("/login");
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+            req.flash(
+              "errors",
+              "An error has occurred contact the administrator."
+            );
+        res.redirect("/login");
+      });
+  };
+
+  
+exports.Logout = (req, res, next) => {
+  
+    req.session.destroy((err) => {
+      if(err) {
+        console.log(err);
+      } else {
+        res.redirect('/');
+      }
+    });
+  };
