@@ -35,4 +35,4 @@ describe('creating a new user', () => {
 
     const usernames = usersAtEnd.map(u => u.username)
     expect(usernames).toContain(newUser.username)
-  })
+  })})
