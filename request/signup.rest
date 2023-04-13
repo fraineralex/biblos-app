@@ -2,14 +2,14 @@ POST http://localhost:3001/signup
 Content-Type: application/json
 
 {
-    "username": "fulano2",
+    "username": "fulano3",
     "name": "Fulano",
     "lastName": "De Tal",
     "phone": "809-856-7896",
     //"imageProfile": 
-    "email": "fulano2@gmail.com",
+    "email": "fulano3@gmail.com",
     "address": "Santo Domingo",
-    "roleId": "1"
+    "roleId": "1",
     "password": "1234",
     "confirmPassword": "1234"
 }
