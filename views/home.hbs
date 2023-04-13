@@ -1,6 +1,7 @@
-
 <!-- home section starts  -->
-
+{{#if hasErrorMessages}}
+    {{showAlert}}
+{{/if}}
 <div class="home-container">
 
     <section class="home" id="home">
@@ -17,12 +18,15 @@
 
             <div class="swiper books-slider">
                 <div class="swiper-wrapper">
-                    <a href="#" class="swiper-slide"><img src="/assets/image/book-1.png" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="/assets/image/book-2.png" alt=""></a>
+                    {{#each books as |book| }}
+
+                    <a href="#" class="swiper-slide"><img src="{{book.img}}" alt=""></a>
+                    {{/each}}
+                    {{!-- <a href="#" class="swiper-slide"><img src="/assets/image/book-2.png" alt=""></a>
                     <a href="#" class="swiper-slide"><img src="/assets/image/book-3.png" alt=""></a>
                     <a href="#" class="swiper-slide"><img src="/assets/image/book-4.png" alt=""></a>
                     <a href="#" class="swiper-slide"><img src="/assets/image/book-5.png" alt=""></a>
-                    <a href="#" class="swiper-slide"><img src="/assets/image/book-6.png" alt=""></a>
+                    <a href="#" class="swiper-slide"><img src="/assets/image/book-6.png" alt=""></a> --}}
                 </div>
                 <img src="/assets/image/stand.png" class="stand" alt="">
             </div>
@@ -87,6 +91,8 @@
 
         <div class="swiper-wrapper">
 
+            {{#each books as |book| }}
+
             <div class="swiper-slide box">
                 <div class="icons">
                     <a href="#" class="fas fa-search"></a>
@@ -94,158 +100,16 @@
                     <a href="#" class="fas fa-eye"></a>
                 </div>
                 <div class="image">
-                    <img src="/assets/image/book-1.png" alt="">
+                    <img src="{{book.img}}" alt="">
                 </div>
                 <div class="content">
                     <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
+                    <div class="price">RD$ {{getDiscount book.price}} <span>RD$ {{book.price}}</span></div>
                     <a href="#" class="btn">añadir a la cesta</a>
                 </div>
             </div>
+            {{/each}}
 
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-2.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-3.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-4.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-5.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-6.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-7.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-8.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">añadir a la cesta</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-9.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-search"></a>
-                    <a href="#" class="fas fa-heart"></a>
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="/assets/image/book-10.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Libro destacado</h3>
-                    <div class="price">RD$ 700 <span> RD$ 900</span></div>
-                    <a href="#" class="btn">add to cart</a>
-                </div>
-            </div>
 
         </div>
 
@@ -285,14 +149,14 @@
     <div class="swiper arrivals-slider">
 
         <div class="swiper-wrapper">
-
+            {{#each books as |book| }}
             <a href="#" class="swiper-slide box">
                 <div class="image">
-                    <img src="/assets/image/book-1.png" alt="">
+                    <img src="{{book.img}}" alt="">
                 </div>
                 <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
+                    <h3>{{book.title}}</h3>
+                    <div class="price">RD$ {{book.price}} </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -302,171 +166,15 @@
                     </div>
                 </div>
             </a>
+            {{/each}}
 
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-2.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
 
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-3.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-4.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-5.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
 
         </div>
 
     </div>
 
-    <div class="swiper arrivals-slider">
-
-        <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-6.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-7.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-8.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-9.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>RD$ 900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/assets/image/book-10.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">RD$ 700 <span>$900</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
+   
 
 </section>
 
@@ -483,7 +191,7 @@
             <h1>Hasta 50% de descuento</h1>
             <p>El primer audiolibro es gratis. Además, escucha podcasts exclusivos, audiolibros, Originales y mucho
                 más.</p>
-            <a href="#" class="btn">Compra ahora</a>
+            <a href="/" class="btn">Compra ahora</a>
         </div>
 
         <div class="image">
