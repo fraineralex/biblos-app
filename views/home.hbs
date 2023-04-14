@@ -1,6 +1,13 @@
 <!-- home section starts  -->
 {{#if hasErrorMessages}}
-    {{showAlert}}
+<div class="errorContainer2">
+    <ul>
+        {{#each errorMessages}}
+        <li>{{this}}<div id="closeError" class="fas fa-times"></div></li>
+        {{/each}}
+    </ul>
+
+</div>
 {{/if}}
 <div class="home-container">
 
