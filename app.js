@@ -84,7 +84,7 @@ app.use(errorController.Get404);
 
 const PORT = process.env.PORT || 3001;
 const server = sequelize
-  .sync({ alter: true })
+  .sync(/* { alter: true } */)
   .then(() =>
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
