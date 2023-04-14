@@ -41,6 +41,13 @@
     align-items: center;
 }
 
+#closeError {
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: none;
+    color: #e3e3e3;
+}
+
 .userLoggedContainer p {
     font-size: 16px;
     font-weight: bold;
@@ -346,6 +353,26 @@ section{
 }
 
 .errorContainer2 ul li div {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.successContainer {
+    width: 100%;
+}
+
+.successContainer ul li {
+    font-size: 16px;
+    padding: 20px;
+    background-color: #0f653d;
+    border: 1px solid #064233;
+    color: #51f086;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.successContainer ul li div {
     font-size: 2rem;
     cursor: pointer;
 }

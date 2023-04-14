@@ -16,9 +16,12 @@ document.querySelector("#close-login-btn").onclick = () => {
   loginForm.classList.remove("active");
 };
 
-document.querySelector("#closeError").onclick = () => {
+function removeError() {
   document.querySelector(".errorContainer2").innerHTML = "";
-};
+}
+function removeSuccess() {
+  document.querySelector(".successContainer").innerHTML = "";
+}
 
 window.onscroll = () => {
   searchForm.classList.remove("active");
@@ -30,15 +33,15 @@ window.onscroll = () => {
   }
 };
 
-window.onload = () => {
-  if (window.scrollY > 80) {
-    document.querySelector(".header .header-2").classList.add("active");
-  } else {
-    document.querySelector(".header .header-2").classList.remove("active");
-  }
+// window.onload = () => {
+//   if (window.scrollY > 80) {
+//     document.querySelector(".header .header-2").classList.add("active");
+//   } else {
+//     document.querySelector(".header .header-2").classList.remove("active");
+//   }
 
-  fadeOut();
-};
+//   fadeOut();
+// };
 
 function loader() {
   document.querySelector(".loader-container").classList.add("active");

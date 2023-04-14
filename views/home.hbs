@@ -3,7 +3,17 @@
 <div class="errorContainer2">
     <ul>
         {{#each errorMessages}}
-        <li>{{this}}<div id="closeError" class="fas fa-times"></div></li>
+        <li style="margin-bottom: 5px;">{{this}}<button id="closeError" onclick="removeError()" class="fas fa-times" style="background: none !important;"></button></li>
+        {{/each}}
+    </ul>
+
+</div>
+{{/if}}
+{{#if hasSuccessMessages}}
+<div class="successContainer">
+    <ul>
+        {{#each successMessages}}
+        <li style="margin-bottom: 5px;">{{this}}<button id="closeError" onclick="removeSuccess()" class="fas fa-times" style="background: none !important;"></button></li>
         {{/each}}
     </ul>
 
@@ -35,7 +45,7 @@
                     <a href="#" class="swiper-slide"><img src="/assets/image/book-5.png" alt=""></a>
                     <a href="#" class="swiper-slide"><img src="/assets/image/book-6.png" alt=""></a> --}}
                 </div>
-                <img src="/assets/image/stand.png" class="stand" alt="">
+                {{!-- <img src="/assets/image/stand.png" class="stand" alt=""> --}}
             </div>
 
         </div>
@@ -447,6 +457,6 @@
 
 <!-- loader  -->
 
-<div class="loader-container">
+{{!-- <div class="loader-container">
     <img src="/assets/image/Loader 3.gif" alt="">
-</div>
+</div> --}}
