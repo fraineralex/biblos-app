@@ -38,7 +38,7 @@
                 <a href="/logout" class="fas fa-sign-out-alt"></a>
 
                 {{else}}
-                <div id="login-btn" class="fas fa-user"></div>
+                <div class="fas fa-user login-btn"></div>
                 {{/if}}
 
             </div>
@@ -55,10 +55,10 @@
 
         <div class="header-2">
             <nav class="navbar">
-                <a href="/">home</a>
-                <a href="#">featured</a>
-                <a href="#">arrivals</a>
-                <a href="#">reviews</a>
+                <a href="/">Inicio</a>
+                <a href="#">Destacados</a>
+                <a href="#">Llegados</a>
+                <a href="#">Reseñas</a>
                 <a href="#">blogs</a>
 
             </nav>
@@ -86,21 +86,23 @@
         <div id="close-login-btn" class="fas fa-times"></div>
 
         <form action="/login" method="POST">
-            <h3>sign in</h3>
+            <h3>INICIAR SESION</h3>
             <span>correo</span>
             <input type="email" name="email" class="box" placeholder="Ingrese su correo" id="">
-            <span>password</span>
+            <span>contraseña</span>
             <input type="password" name="password" class="box" placeholder="Ingrese su contraseña" id="">
             {{!-- <div class="checkbox">
                 <input type="checkbox" name="" id="remember-me">
                 <label for="remember-me"> remember me</label>
             </div> --}}
             <input type="submit" value="sign in" class="btn">
-            <p>olvidaste tú contraseña ? <a href="#">click aquí</a></p>
-            <p>no tengo una cuenta ? <a href="#">create una</a></p>
+            {{!-- <p>olvidaste tú contraseña ? <a href="#">click aquí</a></p> --}}
+            <p>no tengo una cuenta ? <a href="/register-user">create una</a></p>
         </form>
 
     </div>
+
+    
 
 
 

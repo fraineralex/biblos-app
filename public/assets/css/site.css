@@ -314,6 +314,139 @@ section{
     cursor: pointer;
 }
 
+.errorContainer {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.errorContainer ul li {
+    font-size: 16px;
+    padding: 20px;
+    background-color: #2c0b0e;
+    border: 1px solid #842029;
+    color: #ea868f;
+    border-radius: 10px;
+    list-style: none;
+}
+
+.errorContainer2 {
+    width: 100%;
+}
+
+.errorContainer2 ul li {
+    font-size: 16px;
+    padding: 20px;
+    background-color: #2c0b0e;
+    border: 1px solid #842029;
+    color: #ea868f;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.errorContainer2 ul li div {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.register-form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    width:100%;
+}
+
+.register-form-container.active{
+    right:0;
+}
+
+.register-form-container form{
+    background:#fff;
+    border:var(--border);
+    width:60rem;
+    padding:2rem;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    margin:2rem;
+}
+
+.register-form-container form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color:var(--black);
+    text-align: center;
+}
+
+.register-form-container form span{
+    display: block;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.register-form-container form .box{
+    width: 100%;
+    margin:.7rem 0;
+    font-size: 1.6rem;
+    border:var(--border);
+    border-radius: .5rem;
+    padding:1rem 1.2rem;
+    color:var(--black);
+    text-transform: none;
+}
+
+.register-form-container form .checkbox{
+    display:flex;
+    align-items: center;
+    gap:.5rem;
+    padding:1rem 0;
+}
+
+.register-form-container form .checkbox label{
+    font-size: 1.5rem;
+    color:var(--light-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.register-form-container form .btn{
+    text-align: center;
+    width:100%;
+    margin:1.5rem 0;
+}
+
+.register-form-container form p{
+    padding-top: .8rem;
+    color:var(--light-color);
+    font-size: 1.5rem;
+}
+
+.register-form-container form p a{
+    color:var(--green);
+}
+
+.register-form-container form p a:hover{
+    color: var(--black);
+    text-decoration: underline;
+}
+
+.register-form-container #close-login-btn{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 .home-container{
     background: url(../image/banner-bg.jpg) no-repeat;
     background-size: cover;

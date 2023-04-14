@@ -8,12 +8,16 @@ document.querySelector("#search-btn").onclick = () => {
 
 let loginForm = document.querySelector(".login-form-container");
 
-document.querySelector("#login-btn").onclick = () => {
+document.querySelector(".login-btn").onclick = () => {
   loginForm.classList.toggle("active");
 };
 
 document.querySelector("#close-login-btn").onclick = () => {
   loginForm.classList.remove("active");
+};
+
+document.querySelector("#closeError").onclick = () => {
+  document.querySelector(".errorContainer2").innerHTML = "";
 };
 
 window.onscroll = () => {
@@ -41,7 +45,7 @@ function loader() {
 }
 
 function fadeOut() {
-  setTimeout(loader, 1500);
+  setTimeout(loader, 500);
 }
 
 var swiper = new Swiper(".books-slider", {

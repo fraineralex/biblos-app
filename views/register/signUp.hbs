@@ -1,89 +1,51 @@
-<div class="col-lg-8 offset-lg-2">
-  <section class="text-center">
-    <div class="card mx-4 mx-md-5 shadow-5-strong signUpForm">
-      <div class="card-body py-5 px-md-5">
-        <div class="row d-flex justify-content-center">
-          <div class="col-lg-8">
-            <h2 class="fw-bold mb-5">Sign up now</h2>
-            <main class="container">
-              {{#if hasErrorMessages}}
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <ul>
-                    {{#each errorMessages}}
-                      <li>{{this}}</li>
-                    {{/each}}
-                  </ul>
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-              {{/if}}
-            </main>
-            <form action="signup" method="POST" enctype="multipart/form-data">
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="name">First name</label>
-                    <input type="text" id="name" name="name" class="form-control" />
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName" class="form-control" />
-                  </div>
-                </div>
-              </div>
+<div class="register-form-container">
 
-              <div class="form-outline mb-4">
-                <label class="form-label" for="email">Email address</label>
-                <input type="email" id="email" name="email" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="address">Address</label>
-                <input type="text" id="address" name="address" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="roleId">Account type</label>
-                <select class="form-select" name="roleId" id="roleId">
-                  <option value="">Select your account type</option>
-                  <option value="1">User</option>
-                  <option value="2">Author</option>
-                </select>
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="imageProfile">Image</label>
-                <input type="file" id="imageProfile" name="ImageFile" class="form-control" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="username">User Name</label>
-                <input type="text" id="username" name="username" class="form-control" />
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block mb-4">
-                Sign up
-              </button>
-            </form>
-          </div>
-        </div>
+  <form action="signup" method="POST" enctype="multipart/form-data">
+  
+    <h3>REGISTRARSE</h3>
+      {{#if hasErrorMessages}}
+      <div class="errorContainer">
+        <ul>
+          {{#each errorMessages}}
+          <li>
+            {{this}}
+          </li>
+          {{/each}}
+        </ul>
+      
       </div>
-    </div>
-  </section>
+      {{/if}}
+    <span>Nombre</span>
+    <input required="true"  type="text" id="name" name="name" class="box" placeholder="Digite su nombre" />
+    <span>Apellido</span>
+    <input required="true" type="text" id="lastName" name="lastName" class="box" placeholder="Digite su apellido" />
+
+    <span>Nombre Usuario</span>
+    <input required="true" type="text" id="username" name="username" class="box" placeholder="Digite su nombre de usuario" />
+
+    <span>Imagen de perfil</span>
+    <input required="true" type="file" id="imageProfile" name="ImageFile" class="box" />
+
+    <span>Email</span>
+    <input required="true" type="email" id="email" name="email" class="box" placeholder="Digite su correo" />
+    <span>Contraseña</span>
+    <input required="true" type="password" id="password" name="password" class="box" placeholder="Digite su contraseña" />
+    <span>Confirmar Contraseña</span>
+    <input required="true" type="password" id="confirmPassword" name="confirmPassword" placeholder="Digite su contraseña" class="box" />
+    <span>Telefono</span>
+    <input required="true" type="text" id="phone" name="phone" class="box" placeholder="Digite su telefono" />
+    <span>Direccion</span>
+    <input required="true" type="text" id="address" name="address" class="box" placeholder="Digite su direccion" />
+    <span>Rol</span>
+
+    <select required="true" class="box" name="roleId" id="roleId">
+      <option value="">Select your account type</option>
+      <option value="1">User</option>
+      <option value="2">Author</option>
+    </select>
+
+    
+  <button type="submit" class="btn">Sign up</button>
+  </form>
+
 </div>
