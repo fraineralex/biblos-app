@@ -127,10 +127,6 @@ Before starting :checkered_flag:, you need to have [Node js](https://nodejs.org)
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-
-Made with 💙 by <a href="https://github.com/fraineralex" target="_blank">Frainer Encarnación</a>
-
-
 ## 👨🏻‍🚀 Developers
 - Frainer Encarnación --> [Github](https://github.com/fraineralex)
 - Maycol Daniel Perez --> [Github](https://github.com/LNagat)
